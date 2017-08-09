@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace api\Http\Controllers;
 
-use App\Sale;
+use api\Sale;
 use Illuminate\Http\Request;
 
 class SalesController extends Controller
@@ -18,7 +18,22 @@ class SalesController extends Controller
     {
         $sales['list_sales'] = $this->sale->listSales();
 
-        return response()->json($sales);
+        if ($sales) {
+            return response()->json($sales);
+        }
+
+        return response()->json('erro', 404);
+    }
+
+    public function listSale(int $id)
+    {
+        $sale = $this->sale->listSale($id);
+
+        if ($sale != '[]') {
+            return $sale;
+        }
+
+        return response()->json('erro', 404);
     }
 
     public function insert(Request $request)

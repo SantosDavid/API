@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace api;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Vendor extends Model
 {
     public function sale(){
-    	return $this->hasOne('App\Sale','id');
+    	return $this->hasOne('api\Sale','id');
     }
 
     public function listVendors()

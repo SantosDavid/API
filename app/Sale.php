@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace api;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -10,12 +10,19 @@ class Sale extends Model
 
     public function vendor()
     {
-    	return $this->hasMany('App\Vendor');
+    	return $this->hasMany('api\Vendor');
     }
 
     public function listSales()
     {
         return $this->all();
+    }
+
+    public function listSale($id)
+    {
+        $sale = $this->where('id', $id)->get();
+
+        return $sale;
     }
 
     public function insert($request)

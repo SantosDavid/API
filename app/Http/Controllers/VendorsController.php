@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace api\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Vendor;
+use api\Vendor;
 
 class VendorsController extends Controller
 {
