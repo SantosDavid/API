@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         //$this->call(VendorTableSeeder::class);
+        $this->call(VendorTableSeeder::class);
         $this->call(SaleTableSeeder::class);
     }
 }
@@ -21,12 +22,12 @@ class VendorTableSeeder extends Seeder
 {
     public function run()
     {
-        App\Vendor::create([
+        api\Vendor::create([
             'name'  => 'Joao',
             'email' =>'joao@gmail.com',
         ]);
 
-        App\Vendor::create([
+        api\Vendor::create([
             'name'  => 'Carlos',
             'email' => 'carlos@hotmail.com',
         ]);
@@ -38,8 +39,8 @@ class SaleTableSeeder extends Seeder
 {
     public function run()
     {
-        App\Sale::create([
-            'id_vendor' => 2,
+        api\Sale::create([
+            'vendor_id' => 2,
             'price'  => '100.00',
             'comission' =>'15.00',
         ]);

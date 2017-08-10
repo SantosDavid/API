@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SalesController extends Controller
 {
     protected $sale;
-
+    
     public function __construct()
     {
         $this->sale = new Sale();

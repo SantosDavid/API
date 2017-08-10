@@ -15,8 +15,8 @@ class Sales extends Migration
     {
         Schema::create('sales', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_vendor')->unsigned();
-            $table->foreign('id_vendor')->
+            $table->integer('vendor_id')->unsigned();
+            $table->foreign('vendor_id')->
                 references('id')->
                 on('vendors')->
                 onDelete('cascade');
@@ -34,6 +34,6 @@ class Sales extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('sales');
     }
 }

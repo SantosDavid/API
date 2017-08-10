@@ -13,10 +13,18 @@ class VendorsController extends Controller
     {
         $this->vendor = new Vendor();
     }
+
     public function listVendors()
     {
-        $vendors['list_vendors'] = $this->vendor->listVendors();
+        $vendors = $this->vendor->listVendors();
 
         return response()->json($vendors);
+    }
+
+    public function listVendor($id)
+    {
+        $vendor = $this->vendor->listVendor($id);
+
+        return $vendor;
     }
 }

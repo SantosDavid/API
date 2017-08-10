@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sale extends Model
 {
-    protected $guarded = ['id'];
+    protected $fillable = ['vendor_id', 'price', 'comission'];
 
     public function vendor()
     {
@@ -36,7 +36,7 @@ class Sale extends Model
 
     public function informationVendor($idSale)
     {
-        return $this->join('vendors', 'vendors.id', '=', 'sales.id_vendor')
+        return $this->join('vendors', 'vendors.id', '=', 'sales.vendor_id')
                     ->where('sales.id', $idSale)
                     ->select('vendors.name', 'vendors.email', 'sales.price', 'sales.comission')
                     ->get();
