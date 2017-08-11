@@ -41,7 +41,8 @@ class SaleTableSeeder extends Seeder
     {
         api\Sale::create([
             'vendor_id' => 2,
-            'price'  => '100.00',
+            'name'      => 'Drone',
+            'price'     => '100.00',
             'comission' =>'15.00',
         ]);
 

@@ -24,7 +24,7 @@ class VendorsController extends Controller
     public function listVendor($id)
     {
         $vendor = $this->vendor->listVendor($id);
-
+        
         return $vendor;
     }
 }

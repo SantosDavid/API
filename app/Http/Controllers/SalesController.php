@@ -4,11 +4,12 @@ namespace api\Http\Controllers;
 
 use api\Sale;
 use Illuminate\Http\Request;
+use api\Http\Requests\SaleRequest;
 
 class SalesController extends Controller
 {
     protected $sale;
-    
+
     public function __construct()
     {
         $this->sale = new Sale();
@@ -36,7 +37,7 @@ class SalesController extends Controller
         return response()->json('erro', 404);
     }
 
-    public function insert(Request $request)
+    public function insert(SaleRequest $request)
     {
         $vendorInformation = $this->sale->insert($request->all());
 

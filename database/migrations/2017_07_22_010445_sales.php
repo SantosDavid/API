@@ -20,7 +20,7 @@ class Sales extends Migration
                 references('id')->
                 on('vendors')->
                 onDelete('cascade');
-
+            $table->string('name');
             $table->float('price');
             $table->float('comission');
             $table->timestamps();
