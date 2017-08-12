@@ -24,9 +24,9 @@ class SaleRequest extends FormRequest
     public function rules()
     {
         return [
-            'vendor_id' => 'required|numeric',
-            'price'     => 'required|numeric',
-            'name'      => 'required|string',
+            'vendor_id' => 'numeric|required',
+            'price'     => 'numeric|required',
+            'name'      => 'string|required',
         ];
     }
 }
