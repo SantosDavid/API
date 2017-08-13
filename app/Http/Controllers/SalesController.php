@@ -5,6 +5,7 @@ namespace api\Http\Controllers;
 use api\Sale;
 use Illuminate\Http\Request;
 use api\Http\Requests\SaleRequest;
+use Illuminate\Support\Facades\Validator;
 
 class SalesController extends Controller
 {
@@ -37,10 +38,23 @@ class SalesController extends Controller
         return response()->json('erro', 404);
     }
 
-    public function insert(SaleRequest $request)
+    public function insert(Request $request)
     {
-        $vendorInformation = $this->sale->insert($request->all());
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'vendor_id' => 'required|numeric',
+                'price'     => 'required|numeric',
+                'name'      => 'required|string',
+            ]);
 
-        return response()->json($vendorInformation);
+        if ($validator->fails())
+        {
+            return response()
+                ->json($validator->errors());
+        }
+
+        return response()
+            ->json($this->sale->insert($request));
     }
 }
