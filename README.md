@@ -1,5 +1,5 @@
 <h1>Teste prático - DEV PHP JR</h1>
-<hr>
+
 
 <b>Requisitos:</b>
 
